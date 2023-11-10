@@ -1,0 +1,87 @@
+<app-nav></app-nav>
+<hr>
+<br>
+<div class="container">
+    <h2>Your Destiny</h2>
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th scope="col">Departure Station</th>
+                <th scope="col">Arrival Station</th>
+                <th scope="col">Flight Number</th>
+                <th scope="col">Price</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let item of destin">
+            <tr>
+                <td>{{item.departureStation}}</td>
+                <td>{{item.arrivalStation}}</td>
+                <td>{{item.flightNumber}}</td>
+                <td>{{item.price}}</td>
+                <td><a routerLink="/reservation">reservation</a></td>
+            </tr>
+        </tbody>
+    </table>
+    <h2>Same Output Different Destination</h2>
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th scope="col">Departure Station</th>
+                <th scope="col">Arrival Station</th>
+                <th scope="col">Flight Number</th>
+                <th scope="col">Price</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let item of origin">
+            <tr>
+                <td>{{item.departureStation}}</td>
+                <td>{{item.arrivalStation}}</td>
+                <td>{{item.flightNumber}}</td>
+                <td>{{item.price}}</td>
+                <td><a routerLink="/reservation">reservation</a></td>
+            </tr>
+        </tbody>
+    </table>
+    <h2>Round-trip flights</h2>
+    <div class="row">
+        <table class="table table-dark col">
+            <thead>
+                <tr>
+                    <th scope="col">Departure Station</th>
+                    <th scope="col">Arrival Station</th>
+                    <th scope="col">Flight Number</th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let item of origiMult">
+                <tr>
+                    <td>{{item.departureStation}}</td>
+                    <td>{{item.arrivalStation}}</td>
+                    <td>{{item.flightNumber}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-dark col">
+            <thead>
+                <tr>
+                    <th scope="col">Departure Station</th>
+                    <th scope="col">Arrival Station</th>
+                    <th scope="col">Flight Number</th>
+                    <th scope="col">Price</th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let item of destinMult">
+                <tr>
+                    <td>{{item.departureStation}}</td>
+                    <td>{{item.arrivalStation}}</td>
+                    <td>{{item.flightNumber}}</td>
+                    <td>{{item.price * 2 }}</td>
+                    <td><a routerLink="/reservation">reservation</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<hr>
+<br>
+<app-footer></app-footer>

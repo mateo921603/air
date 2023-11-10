@@ -1,0 +1,17 @@
+<app-nav></app-nav>
+<hr>
+<div class="container">
+    
+    <div class="input-group">
+        <input type="search" class="form-control rounded" name="originInput" placeholder="origin" aria-label="Search" #originInput
+            aria-describedby="search-addon" />
+        <input type="search" class="form-control rounded" name="destinInput" placeholder="destination" aria-label="Search" #destinInput
+            aria-describedby="search-addon" />
+
+        <button type="button" class="btn btn-outline-primary" (click)="dataSearch(originInput.value, destinInput.value)">search</button>
+    </div>
+</div>
+<hr>
+<app-main></app-main>
+<hr>
+<app-footer></app-footer>

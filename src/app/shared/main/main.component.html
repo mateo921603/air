@@ -1,0 +1,47 @@
+
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <div class="card mx-auto" style="width: 18rem;">
+                <img src="https://th.bing.com/th/id/OIP.tvVjz87f__y6FxyqouQdYgHaE8?pid=ImgDet&rs=1" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Available flights</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">origin : MNZ</li>
+                    <li class="list-group-item">destination : BGT</li>
+                    <li class="list-group-item">flight of : CO</li>
+                    <li class="list-group-item">flight number : 1002</li>
+                    <li class="list-group-item">price : 200</li>
+                </ul>
+                <div class="card-body">
+                    <button class="btn btn-primary" (click)="logaut()"
+                        routerLinkActive="router-link-active">reservation</button>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item" *ngFor="let item of data">
+            <div class="card mx-auto" style="width: 18rem;">
+                <img src="https://th.bing.com/th/id/OIP.tvVjz87f__y6FxyqouQdYgHaE8?pid=ImgDet&rs=1" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Available flights</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">origin : {{item.arrivalStation}}</li>
+                    <li class="list-group-item">destination : {{item.departureStation}}</li>
+                    <li class="list-group-item">flight of : {{item.flightCarrier}}</li>
+                    <li class="list-group-item">flight number : {{item.flightNumber}}</li>
+                    <li class="list-group-item">price : {{item.price}}</li>
+                </ul>
+                <div class="card-body">
+                    <button class="btn btn-primary" (click)="logaut()"
+                        routerLinkActive="router-link-active">reservation</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
