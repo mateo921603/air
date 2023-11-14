@@ -6,10 +6,8 @@ import { ListComponent } from './list/list.component';
 
 const routes: Routes = [
   {path:'', component: SearchComponent},
-  {path:'reservation', component: ReservationComponent},
+  {path:'reservation/:index', component: ReservationComponent},
   {path:'list', component: ListComponent},
-
-
 ];
 
 @NgModule({

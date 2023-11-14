@@ -10,13 +10,15 @@ import { SearchComponent } from './search/search.component';
 import { ListComponent } from './list/list.component';
 import { SharedModule } from '../shared/shared.module';
 import { RouterModule } from '@angular/router';
+import { CurrencyConverterPipe } from '../currency.pipe';
 
 
 @NgModule({
   declarations: [
     ReservationComponent,
     SearchComponent,
-    ListComponent
+    ListComponent,
+    CurrencyConverterPipe
   ],
   imports: [
     CommonModule,

@@ -97,6 +97,8 @@ destin:any[]=[];
 
 data:any[]=[];
 
+dateRegister:any[]=[];
+
 private urlApi = 'https://recruiting-api.newshore.es/api/flights/2';
 constructor(
   private http:HttpClient,
@@ -129,12 +131,9 @@ convertToIATACode(originUpper:string, destinUpper:string, dataSearch:any[]) {
   
   this.origiMult = this.data.filter((c) => c.departureStation === this.originIata);
   this.destinMult = this.data.filter((c) => c.arrivalStation === this.originIata);
-  console.log(this.origiMult, this.destinMult);
+  
   this.origin = this.data.filter((c) => c.departureStation === this.originIata);
   this.destin = this.origin.filter((c) => c.arrivalStation === this.destinIata);
-  console.log(this.origin);
-  console.log(this.destin);
-  console.log(this.data);
 }
   
 }

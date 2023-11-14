@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FlightsService } from '../flights.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -15,9 +16,11 @@ export class ListComponent implements OnInit{
   origin:any[]=[];
   destin:any[]=[];
   
+  selectedCurrency: string = 'USD';
   constructor(
     private apiService: FlightsService,
     private cityService:FlightsService,
+    private router:Router,
 
   ){}
   ngOnInit(): void {
@@ -32,8 +35,24 @@ export class ListComponent implements OnInit{
   addData(){
     this.apiService.getData().subscribe(data => {
       this.data = data;
-      console.log(this.data);
     })
   }
+
+  addReservation1(index: number){
+    this.router.navigate(['/reservation', index]);
+    this.cityService.dateRegister = this.destin;
+  }
+
+  addReservation2(index: number){
+    this.router.navigate(['/reservation', index]);
+    this.cityService.dateRegister = this.origin;
+  }
+
+  addReservation3(index: number){
+    this.router.navigate(['/reservation', index]);
+    this.cityService.dateRegister = this.origiMult;
+  }
+
+
 
 }

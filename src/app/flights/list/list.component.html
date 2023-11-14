@@ -1,7 +1,14 @@
 <app-nav></app-nav>
 <hr>
 <br>
+
 <div class="container">
+    <select class="form-select" aria-label="Default select example" id="currencySelector" [(ngModel)]="selectedCurrency">
+        <option selected>Select your currency</option>
+        <option value="USD">Dólares</option>
+        <option value="EUR">Euros</option>
+        <option value="COL">pesos</option>
+    </select>
     <h2>Your Destiny</h2>
     <table class="table table-dark">
         <thead>
@@ -12,13 +19,14 @@
                 <th scope="col">Price</th>
             </tr>
         </thead>
-        <tbody *ngFor="let item of destin">
+        <tbody *ngFor="let item of destin; let i = index">
             <tr>
                 <td>{{item.departureStation}}</td>
                 <td>{{item.arrivalStation}}</td>
                 <td>{{item.flightNumber}}</td>
-                <td>{{item.price}}</td>
-                <td><a routerLink="/reservation">reservation</a></td>
+                <td>{{item.price | currencyConverter:selectedCurrency:'USD'}}, {{selectedCurrency}}</td>
+                <button class="bnt btn-primary" type="button" (click)="addReservation1(i)">reservation</button>
+                
             </tr>
         </tbody>
     </table>
@@ -32,13 +40,14 @@
                 <th scope="col">Price</th>
             </tr>
         </thead>
-        <tbody *ngFor="let item of origin">
+        <tbody *ngFor="let item of origin; let i = index">
             <tr>
                 <td>{{item.departureStation}}</td>
                 <td>{{item.arrivalStation}}</td>
                 <td>{{item.flightNumber}}</td>
-                <td>{{item.price}}</td>
-                <td><a routerLink="/reservation">reservation</a></td>
+                <td>{{item.price | currencyConverter:selectedCurrency:'USD'}}, {{selectedCurrency}}</td>
+                <button class="bnt btn-primary" type="button" (click)="addReservation2(i)">reservation</button>
+                
             </tr>
         </tbody>
     </table>
@@ -52,7 +61,7 @@
                     <th scope="col">Flight Number</th>
                 </tr>
             </thead>
-            <tbody *ngFor="let item of origiMult">
+            <tbody *ngFor="let item of origiMult; let i = index">
                 <tr>
                     <td>{{item.departureStation}}</td>
                     <td>{{item.arrivalStation}}</td>
@@ -69,13 +78,13 @@
                     <th scope="col">Price</th>
                 </tr>
             </thead>
-            <tbody *ngFor="let item of destinMult">
+            <tbody *ngFor="let item of destinMult; let i = index">
                 <tr>
                     <td>{{item.departureStation}}</td>
                     <td>{{item.arrivalStation}}</td>
                     <td>{{item.flightNumber}}</td>
-                    <td>{{item.price * 2 }}</td>
-                    <td><a routerLink="/reservation">reservation</a></td>
+                    <td>{{item.price *2 | currencyConverter:selectedCurrency:'USD'}}, {{selectedCurrency}}</td>
+                    <button class="bnt btn-primary" type="button" (click)="addReservation3(i)">reservation</button>
                 </tr>
             </tbody>
         </table>
